@@ -1,0 +1,558 @@
+{
+  //add this lines of code to your Api for make it required the authntication and you can alose add the Role 
+ //"AuthenticationOptions": {
+//  "AllowedScopes": [],
+//  "AuthenticationProviderKey": "Bearer"
+//},
+//      "RouteClaimsRequirement": {
+//        "Role": "admin" 
+//      }
+  "Routes": [
+    //Authentification
+    //login
+    {
+      "UpstreamPathTemplate": "/gateway/Login",
+      "DownstreamPathTemplate": "/api/User/login",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7131
+        }
+      ]
+    },
+    //register
+    {
+      "UpstreamPathTemplate": "/gateway/Register",
+      "DownstreamPathTemplate": "/api/User/register",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7131
+        }
+      ],
+      "AuthenticationOptions": {
+        "AllowedScopes": [],
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirment": {
+        "Role": "admin"
+      }
+    },
+
+    //City gateway
+
+    {
+      "UpstreamPathTemplate": "/gateway/City",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamPathTemplate": "/api/City",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/City/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/City/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+    //Params Event Participant
+
+    {
+      "UpstreamPathTemplate": "/gateway/EventParticipant",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/EventParticipant",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+
+    {
+      "UpstreamPathTemplate": "/gateway/EventParticipant/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/EventParticipant/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/EventParticipant/{id}",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "DownstreamPathTemplate": "/api/EventParticipant/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+
+    {
+      "UpstreamPathTemplate": "/gateway/EventParticipant/VerifyQRCode",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamPathTemplate": "/api/EventParticipant/VerifyQRCode",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+    // PArams EvenetPartner
+
+    {
+      "UpstreamPathTemplate": "/gateway/EventPartner",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/EventPartner",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+
+    {
+      "UpstreamPathTemplate": "/gateway/EventPartner/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/EventPartner/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+
+    {
+      "UpstreamPathTemplate": "/gateway/EventPartner",
+      "UpstreamHttpMethod": [ "Post","Delete" ],
+      "DownstreamPathTemplate": "/api/EventPartner",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+     
+    // Partner Gateway
+    {
+      "UpstreamPathTemplate": "/gateway/Partner",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamPathTemplate": "/api/Partner",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Partner/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Partner/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+
+    // sponsor gateway
+    {
+      "UpstreamPathTemplate": "/gateway/Sponsor",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamPathTemplate": "/api/Sponsor",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Sponsor/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Sponsor/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+
+    // participant gateway
+    {
+      "UpstreamPathTemplate": "/gateway/Participant",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamPathTemplate": "/api/Participant",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Participant/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Participant/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+
+    // theme gateway
+    {
+      "UpstreamPathTemplate": "/gateway/Theme",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamPathTemplate": "/api/Theme",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Theme/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Theme/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+
+    // mode gateway
+
+    {
+      "UpstreamPathTemplate": "/gateway/Mode",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamPathTemplate": "/api/Mode",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Mode/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Mode/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7047
+        }
+      ]
+    },
+
+    //speaker gateway
+
+    {
+      "UpstreamPathTemplate": "/gateway/speaker",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamPathTemplate": "/api/speaker",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7144
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/speaker/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/speaker/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7144
+        }
+      ]
+    },
+
+    //EventSpeakers gateway
+
+
+    {
+      "UpstreamPathTemplate": "/gateway/EventSpeakers",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/EventSpeakers",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7144
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/EventSpeakers/{id}",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "DownstreamPathTemplate": "/api/EventSpeakers/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7144
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/EventSpeakers/AllEventsBySpeaker/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/EventSpeakers/AllEventsBySpeaker/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7144
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/EventSpeakers/AllSpeakersByEvent/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/EventSpeakers/AllSpeakersByEvent/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7144
+        }
+      ]
+    },
+    //Event gateway
+    {
+      "UpstreamPathTemplate": "/gateway/Event/",
+      "UpstreamHttpMethod": [ "Put", "Get" ],
+      "DownstreamPathTemplate": "/api/Event/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Event/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Event/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Event/GetOnlyEvents/",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/Event/GetOnlyEvents",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Event/GetEventOnlyById/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/Event/GetEventsByProgramId/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    },
+
+    {
+      "UpstreamPathTemplate": "/gateway/Event/GetEventsByProgramId/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/Event/GetEventsByProgramId/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    },
+
+
+
+    //Session gateway
+    {
+      "UpstreamPathTemplate": "/gateway/Session/",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Session/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Session/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Session/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Session/SessionOnly",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/Session/SessionOnly",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Session/GetSessionByEventId/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/Session/GetSessionByEventId/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Session/SessionOnlyById/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/Session/SessionOnlyById/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+
+    },
+    // Program Gateway
+
+
+    {
+      "UpstreamPathTemplate": "/gateway/Program/",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Program/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Program/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Program/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    },
+
+    {
+      "UpstreamPathTemplate": "/gateway/Program/GetAllProgramsOnly",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Program/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Program/GetProgramOnlyById/{id}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get" ],
+      "DownstreamPathTemplate": "/api/Program/GetProgramOnlyById/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ]
+    }
+
+
+  ]
+}

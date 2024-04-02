@@ -1,0 +1,8 @@
+@ParamsService.API_HostAddress = http://localhost:5170
+
+GET {{ParamsService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+ 

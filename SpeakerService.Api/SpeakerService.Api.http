@@ -1,0 +1,6 @@
+@SpeakerService.Api_HostAddress = http://localhost:5124
+
+GET {{SpeakerService.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
